@@ -6,7 +6,48 @@
 	<artifactId>jpa-ency</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>JPA快速练习环境</description>
-	<repositories>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>5.8.2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2</version>
+			</plugin>
+		</plugins>
+	</build>
+	
+	
+	
+	<!-- <repositories>
 		<repository>
 			<id>jakarta.oss.sonatype.org</id>
 			<name>Jakarta OSS Sonatype Staging</name>
@@ -32,5 +73,5 @@
 			<artifactId>h2</artifactId>
 			<version>1.4.200</version>
 		</dependency>
-	</dependencies>
+	</dependencies>-->
 </project>
