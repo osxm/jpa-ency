@@ -7,7 +7,7 @@
 * @Copyright: 2022
 * @version V1.0  
 */
-package com.osxm.jpa.basic;
+package com.osxm.jpa.api;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
