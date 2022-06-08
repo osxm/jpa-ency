@@ -20,12 +20,32 @@ import com.osxm.jpa.entity.Usr;
 
 public class QueryTests {
 
-	@Test
+	//@Test
 	public void find() {
 		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("jpaency_mysql");
 		EntityManager em = emFactory.createEntityManager();
 		Usr usr = em.find(Usr.class, 1);
 		Assertions.assertEquals("刘备",usr.getName());
+		em.close();
+		emFactory.close();
+	}
+	
+	//@Test
+	public void find2() {
+		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("jpaency_mysql");
+		EntityManager em = emFactory.createEntityManager();
+		Usr usr = em.find(Usr.class, 0); //查找不存在的对象,返回null
+		Assertions.assertNull(usr);
+		em.close();
+		emFactory.close();
+	}
+	
+	@Test
+	public void getReference() {
+		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("jpaency_mysql");
+		EntityManager em = emFactory.createEntityManager();
+		Usr usr = em.getReference(Usr.class, 1); //查找不存在的对象,返回的不是null
+		Assertions.assertNotNull(usr);
 		em.close();
 		emFactory.close();
 	}

@@ -26,9 +26,9 @@ public class DetachTests {
 		EntityManager entityManager = emFactory.createEntityManager();
 		Usr usr = entityManager.find(Usr.class, 1);
 		entityManager.getTransaction().begin();
-		entityManager.detach(usr); //分离对象
-		Assertions.assertFalse(entityManager.contains(usr));//对象不包含在实体管理器中
-		usr.setName("刘备2"); //对象值更新不会同步到数据库
+		//entityManager.detach(usr); //分离对象
+		//Assertions.assertFalse(entityManager.contains(usr));//对象不包含在实体管理器中
+		usr.setName("刘备"); //对象值更新不会同步到数据库
         entityManager.getTransaction().commit();
         entityManager.close();
 		emFactory.close();
