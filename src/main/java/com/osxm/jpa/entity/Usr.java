@@ -10,8 +10,17 @@
 package com.osxm.jpa.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityResult;
+import javax.persistence.FieldResult;
 import javax.persistence.Id;
+import javax.persistence.SqlResultSetMapping;
 
+@SqlResultSetMapping(name="UsrResults", 
+entities={ 
+    @EntityResult(entityClass=Usr.class, fields={
+        @FieldResult(name="id", column="ID"),
+        @FieldResult(name="name", column="NAME")})}
+)
 @Entity
 public class Usr {
 	
